@@ -2,7 +2,7 @@
 A program to win at Set with Friends!
 
 ## Demo
-A video demo of the model completing a solo game of set VideoDemoSetSolver.mov
+A video demo of the model completing a solo game of Set can be found in the VideoDemoSetSolver.mov file.
 
 ## Instructions
 Run main.py and then quickly switch over to a fullscreen tab with a Set with Friends (https://setwithfriends.com/) game running.
