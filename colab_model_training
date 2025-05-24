@@ -1,0 +1,19 @@
+from google.colab import drive
+drive.mount('/content/drive')
+
+DRIVE_ZIP_PATH = "/content/drive/MyDrive/Set Project ML/synthetic_dataset.zip"
+COLAB_DATASET_DIR = "/content/datasets"
+!unzip -q "{DRIVE_ZIP_PATH}" -d "{COLAB_DATASET_DIR}"
+
+DRIVE_YAML_PATH = "/content/drive/MyDrive/Set Project ML/set_data.yaml"
+COLAB_YAML_PATH = "/content/set_data.yaml"
+
+!cp "{DRIVE_YAML_PATH}" "{COLAB_YAML_PATH}"
+
+!pip install ultralytics
+
+!yolo train model=yolov8n.pt data=/content/set_data.yaml epochs=100 imgsz=640 batch=16 device=0
+
+MODEL_PATH_ON_DRIVE = "/content/drive/MyDrive/YOLOv8_SetCard_Results/weights/best.pt"
+COLAB_MODEL_PATH = "/content/best.pt"
+!cp "{MODEL_PATH_ON_DRIVE}" "{COLAB_MODEL_PATH}"
